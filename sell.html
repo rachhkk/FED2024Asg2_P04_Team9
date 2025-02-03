@@ -8,35 +8,33 @@
 </head>
 <body>
     <header>
-        <div class="user-notification">Moving User Notification...</div>
+        <!-- Fixed Notification Bar -->
+        <div class="notification-bar">
+            <div class="notification-text" id="notification">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
+        </div>
+
         <h1>MokeSell: Classic Style from Every Era</h1>
         <nav class="nav-links">
             <a href="sales.html">Sales</a>
             <a href="shop.html">Shop</a>
             <a href="sell.html" class="active">Sell</a>
             <a href="aboutus.html">About Us</a>
+            <a href="cart.html" class="cart-link">
+                🛒 <span id="cart-count">0</span>
+            </a>
         </nav>
     </header>
-
-    <main>
-        <h2>List Your Items for Sale</h2>
-        <div class="sell-categories">
-            <div class="sell-box">
-                <h3>Accessories</h3>
-                <label for="accessories-upload" class="upload-btn">Select Pictures</label>
-                <input type="file" id="accessories-upload" multiple hidden>
-            </div>
-
-            <div class="sell-box">
-                <h3>Clothing</h3>
-                <label for="clothing-upload" class="upload-btn">Select Pictures</label>
-                <input type="file" id="clothing-upload" multiple hidden>
-            </div>
+        <h2>Upload an Image</h2>
+        <input type="file" id="fileInput" accept="image/*" onchange="showPreview()">
+        <button onclick="uploadImage()">Upload</button>
+        <p id="status"></p>
+    
+        <div class="preview-container">
+            <img id="preview" alt="Preview">
+            <span id="fileName"></span>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 MokeSell. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>
+    

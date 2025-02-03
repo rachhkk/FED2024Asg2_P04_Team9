@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales - MokeSell</title>
+    <title>Sell - MokeSell</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul class="nav-bar">
-                <li><a href="index.html" class="active">Sales</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="sell.html">Sell</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-        </nav>
+        <!-- Fixed Notification Bar -->
+        <div class="notification-bar">
+            <div class="notification-text" id="notification">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
+        </div>
+
         <h1>MokeSell: Classic Style from Every Era</h1>
+        <nav class="nav-links">
+            <a href="sales.html" class="active">Sales</a>
+            <a href="shop.html">Shop</a>
+            <a href="sell.html">Sell</a>
+            <a href="aboutus.html">About Us</a>
+            <!-- Cart Icon -->
+            <a href="cart.html" class="cart-link">
+                🛒 <span id="cart-count">0</span>
+            </a>
+        </nav>
     </header>
+    <script src="script.js"></script>
 
     <main class="sales-page">
         <h2>Sale Items</h2>
         <div class="product-grid">
             <!-- Product 1 -->
             <div class="product">
-                <img src="placeholder1.png" alt="Product 1">
+                <img src="Bag1.jpg" alt="Product 1">
                 <h3>Stylish Bracelet</h3>
                 <p>A beautiful bracelet to complete your look.</p>
-                <button class="buy-now-btn">Buy Now</button>
+                <p class="price">$15.00</p>
+                <button class="add-to-cart" data-name="Stylish Bracelet" data-price="15.00">Add to Cart</button>
             </div>
             <!-- Product 2 -->
             <div class="product">
                 <img src="placeholder2.png" alt="Product 2">
                 <h3>Elegant Necklace</h3>
                 <p>An elegant necklace for any occasion.</p>
-                <button class="buy-now-btn">Buy Now</button>
+                <p class="price">$25.00</p>
+                <button class="add-to-cart" data-name="Elegant Necklace" data-price="25.00">Add to Cart</button>
             </div>
             <!-- Product 3 -->
             <div class="product">
                 <img src="placeholder3.png" alt="Product 3">
                 <h3>Chic Sunglasses</h3>
                 <p>Stay stylish and protected under the sun.</p>
-                <button class="buy-now-btn">Buy Now</button>
+                <p class="price">$20.00</p>
+                <button class="add-to-cart" data-name="Chic Sunglasses" data-price="20.00">Add to Cart</button>
             </div>
-            <!-- Add more products as needed -->
         </div>
     </main>
 
     <footer>
         <p>&copy; 2025 MokeSell. All rights reserved.</p>
     </footer>
+
+    <script src="sales.js"></script>
 </body>
 </html>
