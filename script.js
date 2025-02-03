@@ -193,53 +193,103 @@ app.get('/profile', async (req, res) => {
 app.listen(3000, () => console.log('Server running on port 3000'));
 
 // sell
-function showPreview() {
+// Show previews of selected images
+function showPreviews() {
     const fileInput = document.getElementById('fileInput');
-    const preview = document.getElementById('preview');
-    const fileName = document.getElementById('fileName');
+    const previewContainer = document.getElementById('preview-container');
 
-    if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
+    // Clear previous previews
+    previewContainer.innerHTML = '';
+
+    const files = fileInput.files;
+
+    // Iterate through all selected files and show previews
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            preview.src = e.target.result;
-            preview.style.display = "block"; // Show image preview
+            // Create a new image element for each file preview
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.classList.add('preview-img'); // Add a class for styling
+            previewContainer.appendChild(img); // Append to preview container
         };
 
         reader.readAsDataURL(file); // Read file data
-        fileName.innerText = file.name; // Show file name
-    } else {
-        preview.style.display = "none";
-        fileName.innerText = "";
     }
 }
 
-async function uploadImage() {
+// Upload the selected images
+function uploadImages() {
     const fileInput = document.getElementById('fileInput');
     const status = document.getElementById('status');
+    const progressContainer = document.getElementById('upload-progress');
+    const progressBar = document.getElementById('progress-bar');
 
     if (!fileInput.files.length) {
-        status.innerText = "Please select an image!";
+        status.innerText = "Please select at least one image!";
         return;
     }
 
     const formData = new FormData();
-    formData.append("image", fileInput.files[0]);
+    const files = fileInput.files;
 
-    try {
-        const response = await fetch("http://localhost:5000/upload", {
-            method: "POST",
-            body: formData
-        });
-
-        const result = await response.json();
-        if (response.ok) {
-            status.innerText = "Upload successful!";
-        } else {
-            status.innerText = "Upload failed: " + result.message;
-        }
-    } catch (error) {
-        status.innerText = "Error uploading file.";
+    // Add all selected files to FormData
+    for (let i = 0; i < files.length; i++) {
+        formData.append("images[]", files[i]);
     }
+
+    // Show the progress bar
+    progressContainer.style.display = 'block';
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:5000/upload", true);
+
+    // Track the upload progress
+    xhr.upload.onprogress = function (event) {
+        if (event.lengthComputable) {
+            const percentComplete = (event.loaded / event.total) * 100;
+            progressBar.style.width = percentComplete + '%';
+        }
+    };
+
+    // Handle the upload completion
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            status.innerText = "Upload successful!";
+            // Show the popup message
+            showPopup();
+        } else {
+            status.innerText = "Upload failed: " + xhr.responseText;
+        }
+        // Hide the progress bar after upload is complete
+        progressContainer.style.display = 'none';
+    };
+
+    // Handle error during the upload
+    xhr.onerror = function () {
+        status.innerText = "Error uploading file.";
+        progressContainer.style.display = 'none'; // Hide progress bar on error
+    };
+
+    // Send the files to the server
+    xhr.send(formData);
+}
+
+// Function to show the popup after upload
+function showPopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'flex'; // Show the popup
+
+    // Close the popup when the user clicks the close button
+    const closeButton = document.getElementById('popup-close');
+    closeButton.addEventListener('click', () => {
+        popup.style.display = 'none'; // Hide the popup when clicked
+    });
+
+    // Optionally, hide the popup after a few seconds
+    setTimeout(() => {
+        popup.style.display = 'none'; // Hide the popup after 3 seconds
+    }, 3000);
 }
