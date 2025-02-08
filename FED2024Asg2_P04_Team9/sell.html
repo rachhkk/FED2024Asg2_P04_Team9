@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell - MokeSell</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="notification-bar">
+            <div class="notification-text">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
+        </div>
+        <h1>MokeSell: Classic Style from Every Era</h1>
+        <nav class="nav-links">
+            <a href="sales.html">Sales</a>
+            <a href="shop.html">Shop</a>
+            <a href="sell.html" class="active">Sell</a>
+            <a href="aboutus.html">About Us</a>
+        </nav>
+    </header>
+
+    <main class="sell-section">
+        <h2>Sell Your Product</h2>
+        <div class="upload-box">
+            <div class="upload-card">
+                <!-- Multiple File Input for Images -->
+                <input type="file" id="fileInput" accept="image/*" onchange="showPreviews()" multiple>
+                <button onclick="uploadImages()">Upload</button>
+
+                <!-- Preview Container -->
+                <div id="preview-container" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+
+                <!-- Progress Bar for Upload -->
+                <div id="upload-progress" class="progress-container" style="display: none;">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+
+                <!-- Status Message -->
+                <p id="status"></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Popup Modal for Success -->
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span id="popup-close" class="popup-close">&times;</span>
+            <p>Upload successful!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 MokeSell. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
