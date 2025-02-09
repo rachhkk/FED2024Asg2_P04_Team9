@@ -3,25 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sell - MokeSell</title>
+    <title>Profile - MokeSell</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <!-- Fixed Notification Bar -->
-        <div class="notification-bar">
-            <div class="notification-text" id="notification">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
-        </div>
 
-        <h1>MokeSell: Classic Style from Every Era</h1>
+    <header>
+        <h1>MokeSell: Your Profile</h1>
         <nav class="nav-links">
-            <a href="sales.html" class="active">Sales</a>
+            <a href="sales.html">Sales</a>
             <a href="shop.html">Shop</a>
             <a href="sell.html">Sell</a>
             <a href="aboutus.html">About Us</a>
-            <!-- Cart Icon -->
-            <a href="cart.html" class="cart-link">
-                🛒 <span id="cart-count">0</span>
-            </a>
+            <a href="cart.html" class="cart-link">🛒 <span id="cart-count">0</span></a>
+            <a href="profile.html" class="profile-icon">👤</a>
         </nav>
     </header>
+
+    <main class="profile-section">
+        <div id="auth-container">
+            <h2>Login to Your Account</h2>
+            <input type="email" id="login-email" placeholder="Enter your email">
+            <input type="password" id="login-password" placeholder="Enter your password">
+            <button class="auth-button" onclick="loginUser()">Login</button>
+
+            <h3>Don't have an account?</h3>
+            <button class="auth-button register" onclick="showRegister()">Register</button>
+        </div>
+
+        <div id="register-container" style="display: none;">
+            <h2>Create a New Account</h2>
+            <input type="email" id="register-email" placeholder="Enter your email">
+            <input type="password" id="register-password" placeholder="Create a password">
+            <button class="auth-button" onclick="registerUser()">Register</button>
+
+            <button class="back-button" onclick="showLogin()">Back to Login</button>
+        </div>
+
+        <div id="user-dashboard" style="display: none;">
+            <h2>Welcome, <span id="user-email"></span>!</h2>
+
+            <h3>Your Purchases & Orders</h3>
+            <ul id="purchase-list">
+                <li>No past purchases yet.</li>
+            </ul>
+
+            <h3>Your Product Listings</h3>
+            <ul id="listing-list">
+                <li>No product listings yet.</li>
+            </ul>
+
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

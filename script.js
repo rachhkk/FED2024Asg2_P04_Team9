@@ -192,104 +192,169 @@ app.get('/profile', async (req, res) => {
 
 app.listen(3000, () => console.log('Server running on port 3000'));
 
-// sell
-// Show previews of selected images
-function showPreviews() {
+// SELL //////////////////////////////////////////////////////////////////////////////////////////
+// Function to show preview of selected images
+function showPreview() {
     const fileInput = document.getElementById('fileInput');
-    const previewContainer = document.getElementById('preview-container');
+    const previewContainer = document.getElementById('previewContainer');
 
-    // Clear previous previews
-    previewContainer.innerHTML = '';
+    previewContainer.innerHTML = ""; // Clear previous previews
 
-    const files = fileInput.files;
-
-    // Iterate through all selected files and show previews
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
+    for (let file of fileInput.files) {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            // Create a new image element for each file preview
-            const img = document.createElement('img');
+            const previewItem = document.createElement("div");
+            previewItem.classList.add("preview-item");
+
+            const img = document.createElement("img");
             img.src = e.target.result;
-            img.classList.add('preview-img'); // Add a class for styling
-            previewContainer.appendChild(img); // Append to preview container
+            img.alt = "Preview";
+
+            const fileName = document.createElement("span");
+            fileName.textContent = file.name;
+
+            previewItem.appendChild(img);
+            previewItem.appendChild(fileName);
+            previewContainer.appendChild(previewItem);
         };
 
-        reader.readAsDataURL(file); // Read file data
+        reader.readAsDataURL(file);
     }
 }
 
-// Upload the selected images
+// Function to show loading bar and popup
 function uploadImages() {
-    const fileInput = document.getElementById('fileInput');
-    const status = document.getElementById('status');
-    const progressContainer = document.getElementById('upload-progress');
-    const progressBar = document.getElementById('progress-bar');
+    const caption = document.getElementById('caption').value;
+    const price = document.getElementById('price').value;
+    const loadingBar = document.getElementById('loadingBar');
+    const loadingContainer = document.querySelector('.loading-bar-container');
+    const popup = document.getElementById('popup');
 
-    if (!fileInput.files.length) {
-        status.innerText = "Please select at least one image!";
+    if (!caption || !price) {
+        alert("Please enter a description and price!");
         return;
     }
 
-    const formData = new FormData();
-    const files = fileInput.files;
+    // Reset and show loading bar
+    loadingBar.style.width = "0%";
+    loadingContainer.style.display = "block";
+    let progress = 0;
 
-    // Add all selected files to FormData
-    for (let i = 0; i < files.length; i++) {
-        formData.append("images[]", files[i]);
+    const interval = setInterval(() => {
+        if (progress >= 100) {
+            clearInterval(interval);
+            loadingBar.style.width = "100%";
+
+            // Simulate a slight delay
+            setTimeout(() => {
+                loadingContainer.style.display = "none";
+                
+                // Show the popup message
+                popup.style.display = "block"; 
+            }, 500);
+        } else {
+            progress += 10;
+            loadingBar.style.width = progress + "%";
+        }
+    }, 200);
+}
+
+// Function to close the popup
+function closePopup() {
+    document.getElementById('popup').style.display = "none";
+}
+
+// PROFILE /////////////////////////////////////////////////////////////////
+// Show Register Form
+function showRegister() {
+    document.getElementById("auth-container").style.display = "none";
+    document.getElementById("register-container").style.display = "block";
+}
+
+// Show Login Form
+function showLogin() {
+    document.getElementById("register-container").style.display = "none";
+    document.getElementById("auth-container").style.display = "block";
+}
+
+// Register User
+function registerUser() {
+    const email = document.getElementById("register-email").value;
+    const password = document.getElementById("register-password").value;
+
+    if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
     }
 
-    // Show the progress bar
-    progressContainer.style.display = 'block';
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/upload", true);
-
-    // Track the upload progress
-    xhr.upload.onprogress = function (event) {
-        if (event.lengthComputable) {
-            const percentComplete = (event.loaded / event.total) * 100;
-            progressBar.style.width = percentComplete + '%';
-        }
-    };
-
-    // Handle the upload completion
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            status.innerText = "Upload successful!";
-            // Show the popup message
-            showPopup();
-        } else {
-            status.innerText = "Upload failed: " + xhr.responseText;
-        }
-        // Hide the progress bar after upload is complete
-        progressContainer.style.display = 'none';
-    };
-
-    // Handle error during the upload
-    xhr.onerror = function () {
-        status.innerText = "Error uploading file.";
-        progressContainer.style.display = 'none'; // Hide progress bar on error
-    };
-
-    // Send the files to the server
-    xhr.send(formData);
+    // Store user data
+    localStorage.setItem(email, JSON.stringify({ email, password, purchases: [], listings: [] }));
+    alert("Registration successful! You can now log in.");
+    showLogin();
 }
 
-// Function to show the popup after upload
-function showPopup() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'flex'; // Show the popup
+// Login User
+function loginUser() {
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
 
-    // Close the popup when the user clicks the close button
-    const closeButton = document.getElementById('popup-close');
-    closeButton.addEventListener('click', () => {
-        popup.style.display = 'none'; // Hide the popup when clicked
-    });
+    const userData = localStorage.getItem(email);
+    
+    if (!userData) {
+        alert("No account found with this email. Please register.");
+        return;
+    }
 
-    // Optionally, hide the popup after a few seconds
-    setTimeout(() => {
-        popup.style.display = 'none'; // Hide the popup after 3 seconds
-    }, 3000);
+    const user = JSON.parse(userData);
+
+    if (user.password !== password) {
+        alert("Incorrect password. Please try again.");
+        return;
+    }
+
+    // Save session
+    sessionStorage.setItem("loggedInUser", email);
+    displayUserInfo(user);
 }
+
+// Display User Info
+function displayUserInfo(user) {
+    document.getElementById("auth-container").style.display = "none";
+    document.getElementById("register-container").style.display = "none";
+    document.getElementById("user-dashboard").style.display = "block";
+
+    document.getElementById("user-email").innerText = user.email;
+    updatePurchaseList(user.purchases);
+    updateListingList(user.listings);
+}
+
+// Update Purchases & Listings
+function updatePurchaseList(purchases) {
+    document.getElementById("purchase-list").innerHTML = purchases.length
+        ? purchases.map(p => `<li>${p}</li>`).join("")
+        : "<li>No past purchases yet.</li>";
+}
+
+function updateListingList(listings) {
+    document.getElementById("listing-list").innerHTML = listings.length
+        ? listings.map(l => `<li>${l}</li>`).join("")
+        : "<li>No product listings yet.</li>";
+}
+
+// Logout
+function logout() {
+    sessionStorage.removeItem("loggedInUser");
+    alert("Logged out successfully!");
+    location.reload();
+}
+
+// Check Session on Load
+document.addEventListener("DOMContentLoaded", function () {
+    const loggedInEmail = sessionStorage.getItem("loggedInUser");
+    
+    if (loggedInEmail) {
+        const userData = JSON.parse(localStorage.getItem(loggedInEmail));
+        if (userData) displayUserInfo(userData);
+    }
+});
