@@ -8,10 +8,13 @@
 </head>
 <body>
     <header>
-        <!-- Fixed Notification Bar -->
+<!------------------------------------------ Notification Bar------------------------------------------------------------->
+
         <div class="notification-bar">
             <div class="notification-text" id="notification">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
         </div>
+
+<!------------------------------------------------- Nav bar------------------------------------------------------------->
 
         <h1>MokeSell: Classic Style from Every Era</h1>
         <nav class="nav-links">
@@ -19,68 +22,72 @@
             <a href="shop.html" class="active">Shop</a>
             <a href="sell.html">Sell</a>
             <a href="aboutus.html">About Us</a>
+            <a href="cart.html" id="cart-icon">🛒 (<span id="cart-count">0</span>)</a>
         </nav>
     </header>
 
-    <script src="script.js"></script>
+<!------------------------------------------ Main ------------------------------------------------------------->
 
-    <main class="shop-page">
-        <section class="shop-header">
-            <h2>Explore Our Timeless Collection</h2>
-            <p>Discover elegant, classic bags that never go out of style.</p>
-        </section>
-    
-        <div class="shop-banner">
-            <img src="shopbanner.jpg" alt="Shop Banner">
+<main class="shop-page">
+    <section class="shop-header">
+        <h2>Explore Our Timeless Collection</h2>
+        <p>Discover elegant, classic bags that never go out of style.</p>
+    </section>
+
+    <div class="shop-banner">
+        <img src="shopbanner.jpg" alt="Shop Banner">
+    </div>
+
+    <section class="product-grid">
+        <!-- Product 1 -->
+        <div class="product">
+            <div class="product-image">
+                <img src="Bag1.jpg" alt="TTMAB Baguette Bag">
+            </div>
+            <div class="product-info">
+                <h3>TTMAB Bow Baguette Bag</h3>
+                <p class="description">A pink and simple bag for the demure girls ♡</p>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart" data-name="TTMAB Bow Baguette Bag" data-price="35.00" data-image="Bag1.jpg">Add to Cart</button>
+            </div>
         </div>
-    
-        <section class="product-grid">
-            <!-- Product 1 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="Bag1.jpg" alt="TTMAB Baguette Bag">
-                </div>
-                <div class="product-info">
-                    <h3>TTMAB Bow Baguette Bag</h3>
-                    <p class="description">A pink and simple bag for the demure girls ♡</p>
-                    <p class="price">$35.00</p>
-                    <button class="add-to-cart" data-name="TTMAB Bow Baguette Bag" data-price="35.00">Add to Cart</button>
-                </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <div class="product-image">
+                <img src="Bag2.jpg" alt="Angora 30905 Blugirl">
             </div>
-    
-            <!-- Product 2 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="Bag2.jpg" alt="Angora 30905 Blugirl">
-                </div>
-                <div class="product-info">
-                    <h3>Angora 30905 Blugirl</h3>
-                    <p class="description">For the simple yet classic girlies</p>
-                    <p class="price">$25.00</p>
-                    <button class="add-to-cart" data-name="Angora 30905 Blugirl" data-price="25.00">Add to Cart</button>
-                </div>
+            <div class="product-info">
+                <h3>Angora 30905 Blugirl</h3>
+                <p class="description">For the simple yet classic girlies</p>
+                <p class="price">$25.00</p>
+                <button class="add-to-cart" data-name="Angora 30905 Blugirl" data-price="25.00" data-image="Bag2.jpg">Add to Cart</button>
+
             </div>
-    
-            <!-- Product 3 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="Bag3.jpg" alt="Dior Romantique Trotter Bag">
-                </div>
-                <div class="product-info">
-                    <h3>Dior Romantique Trotter Bag</h3>
-                    <p class="description">A Dior classic that would never go wrong</p>
-                    <p class="price">$60.00</p>
-                    <button class="add-to-cart" data-name="Dior Romantique Trotter Bag" data-price="60.00">Add to Cart</button>
-                </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <div class="product-image">
+                <img src="Bag3.jpg" alt="Dior Romantique Trotter Bag">
             </div>
-        </section>
-    </main>
+            <div class="product-info">
+                <h3>Dior Romantique Trotter Bag</h3>
+                <p class="description">A Dior classic that would never go wrong</p>
+                <p class="price">$60.00</p>
+                <button class="add-to-cart" data-name="Dior Romantique Trotter Bag" data-price="60.00" data-image="Bag3.jpg">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 
+<!---------------------------------------------------- Footer ------------------------------------------------------------->
     <footer>
         <p>&copy; 2025 MokeSell. All rights reserved.</p>
     </footer>
-
+<!------------------------------------------------------------------------------------------------------->
     <script src="script.js"></script>
 
 </body>
