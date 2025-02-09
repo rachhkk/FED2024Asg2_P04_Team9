@@ -8,56 +8,64 @@
 </head>
 <body>
     <header>
+
+<!---------------------------------------------------- Notification ------------------------------------------------------------->
+
         <div class="notification-bar">
-            <div class="notification-text" id="notification">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
+            <div class="notification-text">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
         </div>
+
+<!---------------------------------------------------- Nav Bar ------------------------------------------------------------->
+
         <h1>MokeSell: Classic Style from Every Era</h1>
         <nav class="nav-links">
             <a href="sales.html">Sales</a>
             <a href="shop.html">Shop</a>
             <a href="sell.html" class="active">Sell</a>
             <a href="aboutus.html">About Us</a>
-            <a href="cart.html" class="cart-link">
-                🛒 <span id="cart-count">0</span>
-            </a>
-            <a href="profile.html" class="profile-icon">👤</a>
+            <a href="cart.html" id="cart-icon">🛒 (<span id="cart-count">0</span>)</a>
         </nav>
     </header>
+
+<!---------------------------------------------------- Main ------------------------------------------------------------->
 
     <main class="sell-section">
         <h2>Sell Your Product</h2>
         <div class="upload-box">
             <div class="upload-card">
-                <input type="file" id="fileInput" accept="image/*" multiple onchange="showPreview()">
-                <div id="previewContainer"></div>
-
-                <!-- Caption Header -->
-                <p class="input-header">Product Description</p>
-                <input type="text" id="caption" placeholder="Enter a short caption">
-
-                <!-- Price Header -->
-                <p class="input-header">Price ($)</p>
-                <input type="number" id="price" placeholder="Enter price">
-
+                <!-- Multiple File Input for Images -->
+                <input type="file" id="fileInput" accept="image/*" onchange="showPreviews()" multiple>
                 <button onclick="uploadImages()">Upload</button>
 
-                <div class="loading-bar-container">
-                    <div id="loadingBar"></div>
+                <!-- Preview Container -->
+                <div id="preview-container" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+
+                <!-- Progress Bar for Upload -->
+                <div id="upload-progress" class="progress-container" style="display: none;">
+                    <div id="progress-bar" class="progress-bar"></div>
                 </div>
+
+                <!-- Status Message -->
+                <p id="status"></p>
             </div>
         </div>
     </main>
 
-    <!-- Cute Popup Message -->
-    <div class="popup" id="popup">
+    <!-- Popup Modal for Success -->
+    <div id="popup" class="popup" style="display: none;">
         <div class="popup-content">
-            <span class="popup-icon">🎉</span>
-            <p>Yay! Your product has been uploaded successfully! 💖</p>
-            <button onclick="closePopup()">Awesome! 🎀</button>
+            <span id="popup-close" class="popup-close">&times;</span>
+            <p>Upload successful!</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+<!---------------------------------------------------- Footer ------------------------------------------------------------->
+<footer>
+    <p>&copy; 2025 MokeSell. All rights reserved.</p>
+</footer>
+
+<!------------------------------------------------------------------------------------------------------------------------->
+<script src="script.js"></script>
 
 </body>
 </html>
