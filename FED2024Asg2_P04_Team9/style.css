@@ -1,0 +1,571 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*--------------------------Body Styling--------------------------*/
+body {
+    background-color: #fff; /* White Background */
+    color: #333; /* Dark text for contrast */
+    line-height: 1.6;
+}
+
+/*--------------------------Header Styling--------------------------*/
+header {
+    background-color: #ff99cc; /* Baby Pink */
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between header title and nav */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px; /* Moves the entire header lower */
+    
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+    color: #000000;
+    text-align: left;
+    flex: 1; /* Allows it to take the left space */
+}
+
+.user-notification {
+    background-color: #ffccdd; /* Light Pink Notification Bar */
+    color: #333; /* Dark Text */
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/*------------------------Navigation Menu-------------------------*/
+header {
+    position: fixed; /* Fixes the header to the top of the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff99cc; /* Baby Pink */
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+/* Adjust Body to Avoid Overlapping */
+body {
+    padding-top: 80px; /* Adjusts for fixed header height */
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+    color: #000000;
+    text-align: left;
+    flex: 1; /* Allows it to take the left space */
+}
+
+/*------------------------Navigation Menu-------------------------*/
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex: 2;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: #000000;
+    color: #ff99cc;
+}
+
+/*-------------------notifications------------------------*/
+/* Fixed Notification Bar */
+.notification-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #a5d4ff;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Notification text animation */
+.notification-text {
+    white-space: nowrap;
+    position: absolute;
+    left: -100%;
+    padding-left: 20px;
+}
+
+
+
+
+/*---------------------------Footer Styling-----------------------------*/
+footer {
+    background-color: #ff99cc; /* Baby Pink */
+    color: #000000;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Section-Specific Styling */
+
+/*-----------------------------Sales Section------------------------------*/
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    
+}
+
+header {
+    background-color: #ff99cc;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+
+.nav-bar li {
+    margin: 0 1rem;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-bar a.active {
+    color: #ff99cc;
+}
+
+main {
+    padding: 2rem;
+text-align: center;
+}
+
+/*--------------------------------Specific styles for sales page h2-------------------------------------*/
+.sales-page h2 {
+    font-size: 2.5rem; /* Larger text for the sales page title */
+    color: #000000; /* A reddish color to make it stand out */
+    margin-top: 80px; /* Adjusted margin-top to move it higher */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Times New Roman", Times, serif;
+
+}
+
+/* Specific styles for shop page h2 */
+.shop-page h2 {
+    font-size: 2.5rem; /* Larger text for the shop page title */
+    color: #2f4f4f; /* A dark greenish color */
+    text-transform: uppercase; /* Makes the text uppercase */
+    margin-top: 80px; /* Adjusted margin-top to move it higher */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Times New Roman", Times, serif;
+
+}
+
+
+
+
+/* Product Grid Styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align all content horizontally */
+    justify-content: space-between; /* Distribute space evenly */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center; /* Center-align text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 250px; /* Set a fixed width for all product images */
+    height: auto; /* Set a fixed height for consistency */
+    object-fit: cover; /* Ensures the image fills the area without distortion */
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+
+.product h3 {
+    font-size: 1.2rem;
+    color: #000000;
+    margin: 0.5rem 0; /* Add consistent spacing around the title */
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+   
+
+}
+
+.product p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0.5rem 0; /* Add consistent spacing around the description */
+    text-align: center;
+}
+
+/* Add-to-Cart Button */
+.add-to-cart {
+    background-color: #ff6699;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 102, 153, 0.4);
+    font-weight: bold;
+}
+
+.add-to-cart:hover {
+    background-color: #ff3366;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 51, 102, 0.5);
+}
+
+.add-to-cart:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(255, 51, 102, 0.3);
+}
+
+
+/*----------------------------------Shop Section--------------------------------*/
+.shop-page {
+    padding: 50px 5%;
+    background: linear-gradient(to bottom, #fdfdfd, #f6f6f6); /* Soft gradient for elegance */
+    text-align: center;
+}
+
+.shop-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Times New Roman", Times, serif; /* Change font to Times New Roman */
+}
+
+
+.shop-header p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/*Shop Banner*/
+.shop-banner {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-in-out;
+}
+
+.shop-banner img {
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+}
+
+.shop-banner:hover {
+    transform: scale(1.02); /* Slight zoom-in effect */
+}
+
+/*Product Grid*/
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding-top: 20px;
+}
+
+/*Product Card*/
+.product {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/*Product Image*/
+.product-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover .product-image img {
+    transform: scale(1.05);
+}
+
+/*Product Info*/
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 1.4rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.product-info .description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/*Price Styling*/
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #994fd9;
+    margin-bottom: 15px;
+}
+
+/*Add to Cart Button*/
+button.add-to-cart {
+    background: #e489d9;
+    color: #ffffff;
+    border: none;
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button.add-to-cart:hover {
+    background: #f389c3;
+    transform: scale(1.05);
+}
+
+
+/*------------------------------Sell Section-----------------------------*/
+.sell-section {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.sell-section h2 {
+    font-size: 2rem;
+    color: #ff99cc;
+    margin-bottom: 1.5rem;
+}
+
+.upload-box {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+}
+
+.upload-card {
+    background-color: #fff;
+    border: 2px solid #ffccdd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.upload-card button {
+    background-color: #ff99cc;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-card button:hover {
+    background-color: #ff66b2;
+}
+
+/* Preview Container */
+.preview-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Preview images: adjust width and height */
+.preview-container img {
+    width: 1px; /* Set the desired width */
+    height: auto; /* Set the desired height */
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #ff66b2;
+    width: 0%;
+    border-radius: 5px;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.popup-close {
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+
+
+/*-----------------------------About Us Section------------------------------*/
+.about-section {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: #ff99cc;
+    margin-bottom: 1.5rem;
+}
+
+.about-section p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/*other*/
+#dropdown-container {
+    padding: 1rem;
+    margin: 2rem;
+    text-align: center;
+}
+
+#category-dropdown {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+#item-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#item-list li {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/*-----------------------------cart----------------------------*/
