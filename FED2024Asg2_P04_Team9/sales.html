@@ -8,14 +8,10 @@
 </head>
 <body>
     <header>
-
- <!---------------------------------------------------- Notification  ---------------------------------------------------->
-
+        <!-- Fixed Notification Bar -->
         <div class="notification-bar">
             <div class="notification-text" id="notification">🚀 Big Sale! Limited-Time Offers on MokeSell 🎉</div>
         </div>
-
-<!---------------------------------------------------- Nav Bar ------------------------------------------------------------->
 
         <h1>MokeSell: Classic Style from Every Era</h1>
         <nav class="nav-links">
@@ -23,12 +19,10 @@
             <a href="shop.html">Shop</a>
             <a href="sell.html">Sell</a>
             <a href="aboutus.html">About Us</a>
-            <a href="cart.html" id="cart-icon">🛒 (<span id="cart-count">0</span>)</a>
+
         </nav>
-
     </header>
-
-<!---------------------------------------------------- Main ------------------------------------------------------------->
+    <script src="script.js"></script>
 
     <main class="sales-page">
         <h2>Sale Items</h2>
@@ -39,8 +33,7 @@
                 <h3>TTMAB Bow Baguette Bag</h3>
                 <p>A pink and simple bag for the demure girls ♡</p>
                 <p class="price">$35.00</p>
-                <button class="add-to-cart" data-name="TTMAB Bow Baguette Bag" data-price="35.00" data-image="Bag1.jpg">Add to Cart</button>
-
+                <button class="add-to-cart" data-name="TTMAB Bow Baguette Bag" data-price="35.00">Add to Cart</button>
             </div>
             <!-- Product 2 -->
             <div class="product">
@@ -48,7 +41,7 @@
                 <h3>Angora 30905 Blugirl</h3>
                 <p>For the simple yet classic girlies</p>
                 <p class="price">$25.00</p>
-                <button class="add-to-cart" data-name="Angora 30905 Blugirl" data-price="25.00" data-image="Bag2.jpg">Add to Cart</button>
+                <button class="add-to-cart" data-name="Angora 30905 Blugirl" data-price="25.00">Add to Cart</button>
             </div>
             <!-- Product 3 -->
             <div class="product">
@@ -56,17 +49,17 @@
                 <h3>Dior Romantique Trotter Bag</h3>
                 <p>A Dior classic that would never go wrong</p>
                 <p class="price">$60.00</p>
-                <button class="add-to-cart" data-name="Dior Romantique Trotter Bag" data-price="60.00" data-image="Bag3.jpg">Add to Cart</button>
+                <button class="add-to-cart" data-name="Dior Romantique Trotter Bag" data-price="60.00">Add to Cart</button>
             </div>
+        </div>
     </main>
 
-<!---------------------------------------------------- Footer ------------------------------------------------------------->
-<footer>
-    <p>&copy; 2025 MokeSell. All rights reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; 2025 MokeSell. All rights reserved.</p>
+    </footer>
 
-<!------------------------------------------------------------------------------------------------------------------------>
-<script src="script.js"></script>
+    
+    <script src="sales.js"></script>
 
 </body>
 </html>
